@@ -35,7 +35,7 @@ A Flutter application that displays movies fetched from **TMDB API**, with a smo
    git clone https://github.com/YourUsername/movie_app.git
    ```bash
    flutter pub get
-   ```bash
+   ```bash-
    flutter run
 
 ## 📸 Shots
