@@ -39,10 +39,10 @@ A Flutter application that displays movies fetched from **TMDB API**, with a smo
    flutter run
 
 ## 📸 Shots
-| SplashScreen                             | Home Screen                           |
-|------------------------------------------|---------------------------------------|
-| ![SplashScreen](assets/splashScreen.gif) | ![Home Screen](assets/HomeScreen.gif) |
+| SplashScreen                                     | Home Screen                                    |
+|--------------------------------------------------|------------------------------------------------|
+| <img src="assets/splashScreen.gif" width="250"/> | <img src="assets/HomeScreen.gif" width="250"/> |
 
-| Movie Details                         | Trailer                              |
-|---------------------------------------|--------------------------------------|
-| ![Movie Details ](assets/details.png) | ![Trailer](assets/TrailerScreen.gif) |
+| Movie Details                               | Trailer                                           |
+|---------------------------------------------|---------------------------------------------------|
+| <img src="assets/details.png" width="250"/> | <img src="assets/TrailerScreen.gif" width="250"/> |
