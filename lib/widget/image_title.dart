@@ -3,6 +3,7 @@ import 'package:movies/pages/data.dart';
 
 class ImageTitle extends StatelessWidget {
   const ImageTitle({super.key, required this.selectedMovie});
+
   final int selectedMovie;
 
   @override
@@ -11,15 +12,12 @@ class ImageTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width : width,
+          width: width,
           margin: EdgeInsets.only(bottom: 12),
           child: Text(
             movies[selectedMovie].title,
             style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold
-            ),
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
           ),
         ),
         Row(

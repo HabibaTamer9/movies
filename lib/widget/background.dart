@@ -8,7 +8,7 @@ class BackGround {
           Color(0xff011520),
           Color(0xff031c29),
           Color(0xff05364e),
-        ],
+    ],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter
         )

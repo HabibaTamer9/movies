@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/pages/data.dart';
 import 'package:movies/pages/home.dart';
-import 'package:movies/widget/decoration.dart';
+import 'package:movies/widget/background.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,8 +12,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   double opacity = 0.0;
-
-
 
   navigateFunction() async {
     await fetchData();
@@ -34,9 +32,9 @@ class _SplashScreenState extends State<SplashScreen> {
       });
 
       navigateFunction();
-
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,13 +47,15 @@ class _SplashScreenState extends State<SplashScreen> {
             TweenAnimationBuilder(
               duration: Duration(milliseconds: 1500),
               curve: Curves.bounceOut,
-              tween: Tween<double>(begin: 0 , end:  MediaQuery.of(context).size.height*0.35),
-              child: Text("📺",style: TextStyle(fontSize: 80),),
-              builder: (context , value , child){
+              tween: Tween<double>(
+                  begin: 0, end: MediaQuery.of(context).size.height * 0.35),
+              child: Text(
+                "📺",
+                style: TextStyle(fontSize: 80),
+              ),
+              builder: (context, value, child) {
                 return Container(
-                  margin: EdgeInsets.only(top: value),
-                  child: child
-                ) ;
+                    margin: EdgeInsets.only(top: value), child: child);
               },
             ),
             Center(
@@ -63,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 opacity: opacity,
                 curve: Curves.bounceOut,
                 duration: Duration(seconds: 2),
-                child:  Text(
+                child: Text(
                   'Movies',
                   style: TextStyle(
                     fontSize: 50,
@@ -71,10 +71,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     letterSpacing: 2,
                     foreground: Paint()
                       ..shader = LinearGradient(
-                        colors: <Color>[
-                          Color(0xff0a838e),
-                          Colors.purple
-                        ],
+                        colors: <Color>[Color(0xff0a838e), Colors.purple],
                       ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 80.0)),
                   ),
                 ),
@@ -86,5 +83,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-

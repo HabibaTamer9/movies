@@ -4,12 +4,13 @@ import 'package:movies/pages/data.dart';
 
 class HomeSlider extends StatelessWidget {
   const HomeSlider({super.key, required this.onChange});
-  final Function(int index , CarouselPageChangedReason) onChange ;
+
+  final Function(int index, CarouselPageChangedReason) onChange;
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-        items: movies.map((item){
+        items: movies.map((item) {
           return Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -20,8 +21,8 @@ class HomeSlider extends StatelessWidget {
           );
         }).toList(),
         options: CarouselOptions(
-          height: height*0.5,
-          aspectRatio: 16/9,
+          height: height * 0.5,
+          aspectRatio: 16 / 9,
           viewportFraction: 1.05,
           initialPage: 0,
           enableInfiniteScroll: true,
@@ -32,7 +33,6 @@ class HomeSlider extends StatelessWidget {
           autoPlayCurve: Curves.fastOutSlowIn,
           onPageChanged: onChange,
           scrollDirection: Axis.horizontal,
-        )
-    );
+        ));
   }
 }

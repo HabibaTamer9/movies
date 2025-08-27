@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies/pages/data.dart';
+import 'package:movies/pages/search.dart';
 import 'package:movies/widget/card_list.dart';
-import 'package:movies/widget/decoration.dart';
+import 'package:movies/widget/background.dart';
 import 'package:movies/widget/image_title.dart';
 import 'package:movies/widget/list_title.dart';
 import 'package:movies/widget/slider.dart';
@@ -15,7 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   PageController controller = PageController();
-  int selectedMovie = 0 ;
+  int selectedMovie = 0;
 
   ScrollController scrollController = ScrollController();
   double opacity = 0.0;
@@ -39,6 +40,7 @@ class _HomeState extends State<Home> {
     scrollController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     size(context);
@@ -50,16 +52,16 @@ class _HomeState extends State<Home> {
           children: [
             //slider
             HomeSlider(
-              onChange: (index , changer){
+              onChange: (index, changer) {
                 setState(() {
-                  selectedMovie = index ;
+                  selectedMovie = index;
                 });
               },
             ),
             //title $ indicator
             Positioned(
-              top: height*0.35,
-              left: width*0.05,
+              top: height * 0.35,
+              left: width * 0.05,
               child: ImageTitle(selectedMovie: selectedMovie),
             ),
             //backGround animation
@@ -81,21 +83,37 @@ class _HomeState extends State<Home> {
             ),
             //AppBar
             Positioned(
-              top: height*0.05,
-              left: width*0.05,
-              right: width*0.05,
+              top: height * 0.05,
+              left: width * 0.05,
+              right: width * 0.05,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.menu, color: Colors.white60,),
+                  Icon(
+                    Icons.menu,
+                    color: Colors.white60,
+                  ),
                   Row(
                     children: [
-                      Icon(Icons.search, color: Colors.white60,),
-                      SizedBox(width: 10,),
-                      Icon(Icons.notifications_none, color: Colors.white60,),
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              showSearch(context: context, delegate: Search());
+                            });
+                          },
+                          icon: Icon(
+                            Icons.search,
+                            color: Colors.white60,
+                          )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        Icons.notifications_none,
+                        color: Colors.white60,
+                      ),
                     ],
                   )
-
                 ],
               ),
             ),
@@ -103,7 +121,7 @@ class _HomeState extends State<Home> {
             Positioned(
               bottom: 0,
               child: Container(
-                height: height*0.7,
+                height: height * 0.7,
                 width: width,
                 decoration: BackGround().homeDecoration(),
               ),
@@ -112,20 +130,33 @@ class _HomeState extends State<Home> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: height*0.9,
-                padding: EdgeInsets.only(left: width*0.04,),
+                height: height * 0.9,
+                padding: EdgeInsets.only(
+                  left: width * 0.04,
+                ),
                 child: SingleChildScrollView(
                   controller: scrollController,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: height*0.35,),
+                      SizedBox(
+                        height: height * 0.35,
+                      ),
                       ListTitle(name: "Top Rate"),
-                      CardList(movie: topMovies,listName: "Top_Rate",),
+                      CardList(
+                        movie: topMovies,
+                        listName: "Top_Rate",
+                      ),
                       ListTitle(name: "Popular"),
-                      CardList(movie: popularMovies , listName: "Popular",),
+                      CardList(
+                        movie: popularMovies,
+                        listName: "Popular",
+                      ),
                       ListTitle(name: "New"),
-                      CardList(movie: newMovies , listName: "New",)
+                      CardList(
+                        movie: newMovies,
+                        listName: "New",
+                      )
                     ],
                   ),
                 ),
