@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/pages/data.dart';
+import 'package:movies/data.dart';
 
 class HomeSlider extends StatelessWidget {
   const HomeSlider({super.key, required this.onChange});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/pages/data.dart';
+import 'package:movies/data.dart';
 
 class ContentText extends StatelessWidget {
   const ContentText(

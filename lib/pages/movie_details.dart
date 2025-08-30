@@ -6,7 +6,7 @@ import 'package:movies/pages/trailer.dart';
 import 'package:movies/widget/content_text.dart';
 import 'package:movies/widget/background.dart';
 
-import 'data.dart';
+import '../data.dart';
 
 class MovieDetails extends StatefulWidget {
   const MovieDetails(

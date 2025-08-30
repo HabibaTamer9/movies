@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/pages/data.dart';
+import 'package:movies/data.dart';
 import 'package:movies/pages/search.dart';
 import 'package:movies/widget/card_list.dart';
 import 'package:movies/widget/background.dart';

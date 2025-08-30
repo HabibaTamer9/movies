@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/pages/movie_details.dart';
 import 'package:http/http.dart' as http;
 
-import '../pages/data.dart';
+import '../data.dart';
 
 class CardList extends StatefulWidget {
   const CardList({super.key, required this.movie, this.listName});
@@ -71,8 +71,9 @@ class _CardListState extends State<CardList> {
                           "https://image.tmdb.org/t/p/w500/${widget.movie[i]["backdrop_path"]}",
                           fit: BoxFit.cover,
                           loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null)
-                              return child; // الصورة خلصت تحميل
+                            if (loadingProgress == null) {
+                              return child;
+                            } // الصورة خلصت تحميل
                             return Center(
                               child: CircularProgressIndicator(
                                 value: loadingProgress.expectedTotalBytes !=

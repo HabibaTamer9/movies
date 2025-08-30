@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/pages/data.dart';
+import 'package:movies/data.dart';
 import 'package:movies/pages/home.dart';
 import 'package:movies/widget/background.dart';
 
@@ -15,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   navigateFunction() async {
     await fetchData();
+    print("5");
     Future.delayed(Duration(milliseconds: 200), () {
       Navigator.pushReplacement(
         context,
@@ -30,7 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
       setState(() {
         opacity = 1.0;
       });
-
       navigateFunction();
     });
   }

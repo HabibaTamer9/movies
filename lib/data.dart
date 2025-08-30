@@ -21,23 +21,13 @@ size(context) {
   width = MediaQuery.of(context).size.width;
 }
 
-fetchSearch(String text) async {
-  var response = await http.get(Uri.parse(
-      "https://api.themoviedb.org/3/search/movie?api_key=$appApi&query=$text&include_adult=false"));
-  if (response.statusCode == 200) {
-    var body = jsonDecode(response.body);
-    resultSearch = body["results"];
-  } else {
-    resultSearch = [];
-  }
-}
-
 fetchPopular() async {
   var response = await http.get(Uri.parse(
       "https://api.themoviedb.org/3/movie/popular?api_key=e5ad62e9c717f4015e22c0dfc8eda432"));
   if (response.statusCode == 200) {
     var body = jsonDecode(response.body);
     popularMovies = body["results"];
+    print("1");
   } else {
     popularMovies = movies;
   }
@@ -49,6 +39,7 @@ fetchNew() async {
   if (response.statusCode == 200) {
     var body = jsonDecode(response.body);
     newMovies = body["results"];
+    print("2");
   } else {
     newMovies = movies;
   }
@@ -60,6 +51,7 @@ fetchTop() async {
   if (response.statusCode == 200) {
     var body = jsonDecode(response.body);
     topMovies = body["results"];
+    print("3");
   } else {
     topMovies = movies;
   }
@@ -69,13 +61,19 @@ fetchData() async {
   await fetchNew();
   await fetchPopular();
   await fetchTop();
+  print("4");
 }
 
 List popularMovies = [];
+
 List newMovies = [];
+
 List topMovies = [];
+
 List resultSearch = [];
+
 Map video = {};
+
 List<Movie> movies = [
   Movie(
     "Legend of the blue sea",
